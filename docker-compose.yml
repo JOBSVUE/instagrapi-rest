@@ -1,11 +1,12 @@
-version: "3.3"
+version: '3.3'
+
 services:
   api:
     build: .
     command: bash -lc "export PORT=8000 && $(cat Procfile | cut -d: -f2-)"
-    stdin_open: true
-    tty: true
     ports:
       - "8000:8000"
     volumes:
       - .:/app
+    stdin_open: true
+    tty: true
